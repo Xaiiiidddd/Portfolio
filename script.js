@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // Wait for DOM
 document.addEventListener("DOMContentLoaded", () => {
     
@@ -224,3 +225,6 @@ document.addEventListener("DOMContentLoaded", () => {
         root.style.setProperty("--pointer-y", "0");
     }
 });
+=======
+
+>>>>>>> 128c7b2456fe3e249f3443a8fd9e2deb25b5a67b
