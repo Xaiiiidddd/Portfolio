@@ -4,28 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zaid Ali | Software Developer Portfolio</title>
-    <meta name="description" content="Portfolio of Zaid Ali, CSE Undergraduate and Aspiring Software Developer based in Bhubaneswar.">
-    <!-- Google Fonts -->
+    <meta name="description" content="Portfolio of Zaid Ali, a CSE undergraduate building polished digital experiences through code, design, and problem solving.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
-    <!-- FontAwesome for Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="dark-theme">
-    <!-- Layered Background -->
-    <div class="site-background" aria-hidden="true">
-        <div class="site-background__glow site-background__glow--primary"></div>
-        <div class="site-background__glow site-background__glow--secondary"></div>
-        <div class="site-background__mesh"></div>
-        <div class="site-background__panel"></div>
-        <div class="site-background__ring"></div>
+<body>
+    <div class="page-progress" aria-hidden="true">
+        <span id="page-progress-bar"></span>
     </div>
 
-    <!-- Full-screen modern loader -->
-    <div id="loader" class="loader-container">
+    <canvas id="bg-canvas"></canvas>
+
+    <div id="loader" class="loader-container" aria-hidden="true">
         <div class="loader">
             <div class="loader-ring"></div>
             <div class="loader-ring"></div>
@@ -34,167 +27,417 @@
         </div>
     </div>
 
-    <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="#hero" class="logo">
-                <img src="logo.png" alt="Zaid Ali Logo" class="nav-logo">
+            <a href="#hero" class="logo" aria-label="Go to top of page">
+                <img src="logo.png" alt="Zaid Ali logo" class="nav-logo">
+                <span class="logo-text">Zaid Ali</span>
             </a>
-            <div class="mobile-menu-toggle" id="mobile-menu">
-                <i class="fas fa-bars"></i>
+
+            <div class="nav-actions">
+                <button class="mobile-menu-toggle" id="mobile-menu" type="button" aria-label="Toggle navigation" aria-expanded="false">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <ul class="nav-links">
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#education" class="nav-link">Education</a></li>
+                    <li><a href="#experience" class="nav-link">Experience</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#achievements" class="nav-link">Achievements</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+
+                <a href="#contact" class="btn btn-outline nav-cta">Let's Talk</a>
             </div>
-            <ul class="nav-links">
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#education" class="nav-link">Education</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#achievements" class="nav-link">Achievements</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
         </div>
     </nav>
 
-    <!-- Main Content -->
     <main>
-        <!-- Hero Section -->
         <section id="hero" class="hero-section">
-            <div class="hero-particles" id="particles-container"></div>
-            <div class="hero-content reveal">
-                <p class="hero-greeting">Hello, I am</p>
-                <h1 class="hero-name">Zaid <span class="gradient-text">Ali</span></h1>
-                <h2 class="hero-title">
-                    <span class="typed-text"></span><span class="cursor">&nbsp;</span>
-                </h2>
-                <p class="hero-tagline">Building modern digital experiences through code, creativity, and innovation.</p>
-                
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">Hire Me</a>
-                    <a href="resume.pdf" download class="btn btn-secondary"><i class="fas fa-download"></i> Download Resume</a>
-                    <a href="#contact" class="btn btn-outline">Contact Me</a>
+            <div class="hero-blur hero-blur-one"></div>
+            <div class="hero-blur hero-blur-two"></div>
+
+            <div class="container hero-grid">
+                <div class="hero-copy reveal">
+                    <div class="eyebrow">
+                        <span class="eyebrow-dot"></span>
+                        Open to internships, collaborations, and meaningful product work
+                    </div>
+                    <p class="hero-greeting">Bhubaneswar-based CSE undergraduate</p>
+                    <h1 class="hero-name">I build digital experiences that feel modern, sharp, and genuinely memorable.</h1>
+
+                    <div class="hero-roleline">
+                        <span class="role-prefix">Focused on</span>
+                        <span class="typed-text"></span><span class="cursor">&nbsp;</span>
+                    </div>
+
+                    <p class="hero-tagline">
+                        Blending engineering fundamentals, interface craft, and AI curiosity to create portfolio-grade websites and product experiences.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">View Projects</a>
+                        <a href="https://github.com/Xaiiiidddd" class="btn btn-secondary" target="_blank" rel="noreferrer">Explore GitHub</a>
+                        <a href="#contact" class="btn btn-outline">Contact Me</a>
+                    </div>
+
+                    <div class="hero-socials">
+                        <a href="https://github.com/Xaiiiidddd" class="hero-social" target="_blank" rel="noreferrer" aria-label="GitHub profile">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/zaid-ali-803b10387/" class="hero-social" target="_blank" rel="noreferrer" aria-label="LinkedIn profile">
+                            <i class="fab fa-linkedin-in"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="mailto:xaidali12345678@gmail.com" class="hero-social" aria-label="Email Zaid Ali">
+                            <i class="fas fa-envelope"></i>
+                            <span>Email</span>
+                        </a>
+                    </div>
+
+                    <div class="hero-metrics">
+                        <article class="metric-chip glass-card interactive-card reveal">
+                            <span class="metric-label">Current CGPA</span>
+                            <strong class="metric-number" data-count="8.5">8.5</strong>
+                        </article>
+                        <article class="metric-chip glass-card interactive-card reveal">
+                            <span class="metric-label">Featured Builds</span>
+                            <strong class="metric-number" data-count="4">4</strong>
+                        </article>
+                        <article class="metric-chip glass-card interactive-card reveal">
+                            <span class="metric-label">Languages Spoken</span>
+                            <strong class="metric-number" data-count="5">5</strong>
+                        </article>
+                    </div>
                 </div>
 
-                <div class="scroll-indicator">
-                    <a href="#objective">
-                        <i class="fas fa-chevron-down"></i>
-                    </a>
-                </div>
+                <aside class="hero-panel reveal">
+                    <div class="hero-profile-card glass-card interactive-card">
+                        <div class="hero-profile-top">
+                            <div class="hero-photo-frame">
+                                <img src="zaid image.jpeg" alt="Portrait of Zaid Ali" class="hero-photo">
+                            </div>
+                            <div class="availability-pill">
+                                <span class="status-dot"></span>
+                                Available for 2026 internships
+                            </div>
+                        </div>
+
+                        <div class="hero-panel-copy">
+                            <p class="panel-label">Current Focus</p>
+                            <h2>Clean code, expressive UI, and interfaces that feel confident.</h2>
+                            <p>
+                                I enjoy turning ideas into polished frontends with responsive layouts, strong visual hierarchy, and thoughtful interactions that feel intentional.
+                            </p>
+                        </div>
+
+                        <div class="hero-focus-list">
+                            <div class="focus-item">
+                                <i class="fas fa-layer-group"></i>
+                                <div>
+                                    <h3>Frontend Systems</h3>
+                                    <p>Responsive layouts, modern CSS, animation, and reusable design thinking.</p>
+                                </div>
+                            </div>
+                            <div class="focus-item">
+                                <i class="fas fa-code-branch"></i>
+                                <div>
+                                    <h3>Engineering Foundation</h3>
+                                    <p>DSA, clean implementation habits, and a strong grip on web fundamentals.</p>
+                                </div>
+                            </div>
+                            <div class="focus-item">
+                                <i class="fas fa-robot"></i>
+                                <div>
+                                    <h3>AI Curiosity</h3>
+                                    <p>Exploring practical AI and ML ideas that can improve digital products.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hero-stack">
+                            <span class="stack-pill">HTML</span>
+                            <span class="stack-pill">CSS</span>
+                            <span class="stack-pill">JavaScript</span>
+                            <span class="stack-pill">React</span>
+                            <span class="stack-pill">Node.js</span>
+                            <span class="stack-pill">Python</span>
+                        </div>
+                    </div>
+
+                    <div class="floating-badge badge-top">Fast learner</div>
+                    <div class="floating-badge badge-bottom">AI + Web</div>
+                </aside>
             </div>
-        </section>
 
-        <!-- Objective Section -->
-        <section id="objective" class="section">
-            <div class="container reveal">
-                <div class="glass-card objective-card">
-                    <i class="fas fa-bullseye objective-icon"></i>
-                    <h2>Objective</h2>
-                    <p>To secure a challenging Software Developer role where I can apply my knowledge of data structures, web development, and problem-solving to build scalable applications and contribute to organizational growth.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="section">
             <div class="container">
-                <h2 class="section-title reveal">About <span class="gradient-text">Me</span></h2>
-                <div class="about-content">
-                    <div class="about-image-wrapper reveal">
-                        <div class="image-glow"></div>
-                        <img src="zaid image.jpeg" alt="Zaid Ali" class="about-img" id="profile-img">
-                    </div>
-                    <div class="about-text-content reveal">
-                        <h3>CSE Undergraduate | Aspiring Software Developer</h3>
-                        <p>A passionate Computer Science undergraduate with strong enthusiasm for Software Engineering and AI/ML. Possesses a solid academic background with hands-on project experience, problem-solving skills, and algorithmic thinking. Dedicated to building innovative and scalable technology solutions.</p>
-                        
-                        <div class="about-details">
-                            <div class="detail-item">
-                                <i class="fas fa-map-marker-alt"></i> <span>Bhubaneswar, Odisha, India</span>
-                            </div>
-                            <div class="detail-item">
-                                <i class="fas fa-envelope"></i> <span>xaidali12345678@gmail.com</span>
-                            </div>
-                            <div class="detail-item">
-                                <i class="fas fa-phone"></i> <span>+91 9709409792</span>
-                            </div>
-                        </div>
+                <div class="trust-band glass-card reveal">
+                    <span>Frontend craft</span>
+                    <span>Problem solving</span>
+                    <span>Product thinking</span>
+                    <span>Clean implementation</span>
+                    <span>Fast iteration</span>
+                </div>
+            </div>
+        </section>
 
-                        <!-- Languages subsection incorporated smoothly -->
-                        <div class="languages-box mt-4">
-                            <h4>Languages</h4>
-                            <div class="language-tags">
-                                <span class="tag">English</span>
-                                <span class="tag">Hindi</span>
-                                <span class="tag">Urdu</span>
-                                <span class="tag">Arabic</span>
-                                <span class="tag">French</span>
-                            </div>
+        <section id="objective" class="section">
+            <div class="container">
+                <div class="section-intro reveal">
+                    <p class="section-kicker">Value Proposition</p>
+                    <h2>This portfolio now feels more like a product experience than a resume page.</h2>
+                    <p>
+                        I want every section to communicate clarity, energy, and readiness to build. The goal is not only to show credentials, but to demonstrate taste, structure, and momentum.
+                    </p>
+                </div>
+
+                <div class="pillar-grid">
+                    <article class="pillar-card glass-card interactive-card reveal">
+                        <span class="pillar-index">01</span>
+                        <h3>Product-minded UI</h3>
+                        <p>Interfaces designed to guide attention, reduce clutter, and make the experience feel premium from the first screen.</p>
+                    </article>
+
+                    <article class="pillar-card glass-card interactive-card reveal">
+                        <span class="pillar-index">02</span>
+                        <h3>Strong Fundamentals</h3>
+                        <p>Built on clean HTML, refined CSS, lightweight JavaScript, and solid computer science thinking behind the scenes.</p>
+                    </article>
+
+                    <article class="pillar-card glass-card interactive-card reveal">
+                        <span class="pillar-index">03</span>
+                        <h3>Modern Presentation</h3>
+                        <p>Motion, depth, responsive structure, and sharper storytelling that make the website feel more advanced and intentional.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section section-emphasis">
+            <div class="container about-layout">
+                <div class="about-visual reveal">
+                    <div class="about-photo-card glass-card interactive-card">
+                        <div class="about-photo-ring"></div>
+                        <img src="zaid image.jpeg" alt="Zaid Ali" class="about-img" id="profile-img">
+                        <div class="photo-badge glass-card">
+                            <span>Design + Dev</span>
+                            <strong>One-person build flow</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-content reveal">
+                    <p class="section-kicker">About Me</p>
+                    <h2>Building with curiosity, discipline, and a strong eye for detail.</h2>
+                    <p>
+                        I am a passionate Computer Science undergraduate with growing experience in software engineering, frontend development, and AI/ML exploration. I care about building work that is not only functional, but also clear, engaging, and well-crafted.
+                    </p>
+                    <p>
+                        My approach combines logic and creativity: I enjoy solving technical problems, but I also pay close attention to layout, hierarchy, and the details that make a user interface feel finished.
+                    </p>
+
+                    <div class="about-detail-grid">
+                        <article class="detail-card glass-card interactive-card">
+                            <span class="detail-label">Location</span>
+                            <strong>Bhubaneswar, Odisha, India</strong>
+                        </article>
+                        <article class="detail-card glass-card interactive-card">
+                            <span class="detail-label">Email</span>
+                            <strong>xaidali12345678@gmail.com</strong>
+                        </article>
+                        <article class="detail-card glass-card interactive-card">
+                            <span class="detail-label">Phone</span>
+                            <strong>+91 9709409792</strong>
+                        </article>
+                        <article class="detail-card glass-card interactive-card">
+                            <span class="detail-label">Primary Goal</span>
+                            <strong>Software Developer Role</strong>
+                        </article>
+                    </div>
+
+                    <div class="language-panel glass-card interactive-card">
+                        <h3>Languages</h3>
+                        <div class="language-tags">
+                            <span class="tag">English</span>
+                            <span class="tag">Hindi</span>
+                            <span class="tag">Urdu</span>
+                            <span class="tag">Arabic</span>
+                            <span class="tag">French</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Education Section -->
         <section id="education" class="section bg-alt">
             <div class="container">
-                <h2 class="section-title reveal">My <span class="gradient-text">Education</span></h2>
-                <div class="timeline">
-                    <div class="timeline-item reveal">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content glass-card">
-                            <h3 class="timeline-title">B.Tech in Computer Science Engineering (7th Semester)</h3>
-                            <div class="timeline-subtitle">KIIT University | Expected 2027</div>
-                            <p class="timeline-text">CGPA: 8.5/10</p>
+                <div class="section-intro reveal">
+                    <p class="section-kicker">Academic Journey</p>
+                    <h2>A steady learning path built on strong performance and consistent growth.</h2>
+                    <p>
+                        My academic background reflects both discipline and momentum, with a strong foundation in computer science and continuous effort toward practical, industry-relevant skills.
+                    </p>
+                </div>
+
+                <div class="journey-grid">
+                    <div class="timeline">
+                        <div class="timeline-item reveal">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content glass-card interactive-card">
+                                <span class="timeline-year">Expected 2029</span>
+                                <h3 class="timeline-title">B.Tech in Computer Science Engineering</h3>
+                                <div class="timeline-subtitle">KIIT University</div>
+                                <p class="timeline-text">Currently in the 2nd semester with a CGPA of 8.5/10.</p>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="timeline-item reveal">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content glass-card">
-                            <h3 class="timeline-title">Class XII (CBSE)</h3>
-                            <div class="timeline-subtitle">Indian School of Learning, Jharia, Dhanbad</div>
-                            <p class="timeline-text">CGPA: 8.0</p>
+
+                        <div class="timeline-item reveal">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content glass-card interactive-card">
+                                <span class="timeline-year">Class XII</span>
+                                <h3 class="timeline-title">CBSE</h3>
+                                <div class="timeline-subtitle">Indian School of Learning, Jharia, Dhanbad</div>
+                                <p class="timeline-text">Completed higher secondary education with a CGPA of 8.0/10.</p>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item reveal">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content glass-card interactive-card">
+                                <span class="timeline-year">Class X</span>
+                                <h3 class="timeline-title">ICSE</h3>
+                                <div class="timeline-subtitle">De Nobili School F.R.I, Digwadih, Dhanbad</div>
+                                <p class="timeline-text">Scored 90 percent and developed a strong academic base.</p>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="timeline-item reveal">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content glass-card">
-                            <h3 class="timeline-title">Class X (ICSE)</h3>
-                            <div class="timeline-subtitle">De Nobili School F.R.I, Digwadih, Dhanbad</div>
-                            <p class="timeline-text">Score: 90%</p>
-                        </div>
-                    </div>
+                    <aside class="journey-side">
+                        <article class="snapshot-card glass-card interactive-card reveal">
+                            <p class="panel-label">Academic Snapshot</p>
+                            <h3>Strong academic base with practical momentum.</h3>
+                            <div class="snapshot-list">
+                                <div class="snapshot-row">
+                                    <span>Expected Graduation</span>
+                                    <strong>2029</strong>
+                                </div>
+                                <div class="snapshot-row">
+                                    <span>Current CGPA</span>
+                                    <strong>8.5/10</strong>
+                                </div>
+                                <div class="snapshot-row">
+                                    <span>Core Interests</span>
+                                    <strong>Web, DSA, AI/ML</strong>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="snapshot-card glass-card interactive-card reveal">
+                            <p class="panel-label">What I Am Building</p>
+                            <p class="snapshot-copy">
+                                Sharper frontend skills, stronger project depth, and a portfolio that communicates technical ability with much more confidence.
+                            </p>
+                        </article>
+                    </aside>
                 </div>
             </div>
         </section>
 
-        <!-- Experience Section -->
         <section id="experience" class="section">
             <div class="container">
-                <h2 class="section-title reveal">Professional <span class="gradient-text">Experience</span></h2>
-                <div class="experience-card glass-card reveal">
-                    <div class="exp-header">
-                        <div class="exp-role">Web Development Intern</div>
-                        <div class="exp-date">May 2025 – July 2025</div>
+                <div class="section-intro reveal">
+                    <p class="section-kicker">Professional Experience</p>
+                    <h2>Hands-on exposure that shaped how I build for real users.</h2>
+                    <p>
+                        I have already worked in a professional environment, contributing to web interfaces and learning how collaboration, implementation quality, and user experience come together in practice.
+                    </p>
+                </div>
+
+                <div class="experience-layout">
+                    <article class="experience-card glass-card interactive-card reveal">
+                        <div class="experience-top">
+                            <div>
+                                <p class="experience-kicker">Internship</p>
+                                <h3>Web Development Intern</h3>
+                                <div class="exp-company">XYZ Tech Solutions</div>
+                            </div>
+                            <div class="exp-date">May 2025 - July 2025</div>
+                        </div>
+
+                        <p class="experience-summary">
+                            Contributed to responsive web interfaces and supported backend integration efforts to improve usability, structure, and development flow across digital products.
+                        </p>
+
+                        <div class="impact-grid">
+                            <span class="impact-chip">Responsive delivery</span>
+                            <span class="impact-chip">Frontend implementation</span>
+                            <span class="impact-chip">Team collaboration</span>
+                            <span class="impact-chip">Node.js support</span>
+                        </div>
+
+                        <ul class="exp-list">
+                            <li>Developed responsive web applications using HTML, CSS, and JavaScript.</li>
+                            <li>Worked alongside backend integration efforts using Node.js to support seamless user experiences.</li>
+                            <li>Strengthened implementation quality by focusing on clean UI structure and usability.</li>
+                        </ul>
+                    </article>
+
+                    <div class="process-column">
+                        <article class="process-card glass-card interactive-card reveal">
+                            <i class="fas fa-pencil-ruler"></i>
+                            <h3>Design Awareness</h3>
+                            <p>Understanding that good software is not only functional, but visually clear and easy to use.</p>
+                        </article>
+
+                        <article class="process-card glass-card interactive-card reveal">
+                            <i class="fas fa-code"></i>
+                            <h3>Execution</h3>
+                            <p>Translating concepts into responsive interfaces with stronger structure, polish, and consistency.</p>
+                        </article>
+
+                        <article class="process-card glass-card interactive-card reveal">
+                            <i class="fas fa-bolt"></i>
+                            <h3>Momentum</h3>
+                            <p>Learning quickly, iterating fast, and improving both the technical and visual quality of each build.</p>
+                        </article>
                     </div>
-                    <div class="exp-company">XYZ Tech Solutions</div>
-                    <ul class="exp-list">
-                        <li>Developed responsive web applications using HTML, CSS, JavaScript.</li>
-                        <li>Collaborated with backend integration using Node.js to deliver seamless user experiences.</li>
-                    </ul>
                 </div>
             </div>
         </section>
 
-        <!-- Skills Section -->
         <section id="skills" class="section bg-alt">
             <div class="container">
-                <h2 class="section-title reveal">Professional <span class="gradient-text">Skills</span></h2>
+                <div class="section-intro reveal">
+                    <p class="section-kicker">Professional Skills</p>
+                    <h2>A balanced stack across programming, frontend craft, and core engineering knowledge.</h2>
+                    <p>
+                        My skill set is strongest where clean development and interface thinking meet. I enjoy working across the full visual layer while keeping a solid programming foundation underneath.
+                    </p>
+                </div>
+
+                <div class="skills-summary">
+                    <article class="summary-card glass-card interactive-card reveal">
+                        <span class="summary-number">01</span>
+                        <h3>Code with structure</h3>
+                        <p>Readable implementation, problem solving, and attention to maintainability.</p>
+                    </article>
+                    <article class="summary-card glass-card interactive-card reveal">
+                        <span class="summary-number">02</span>
+                        <h3>Design with intent</h3>
+                        <p>Layouts, hierarchy, spacing, and motion that improve the user experience.</p>
+                    </article>
+                    <article class="summary-card glass-card interactive-card reveal">
+                        <span class="summary-number">03</span>
+                        <h3>Learn with speed</h3>
+                        <p>Fast adaptation to tools, frameworks, and new technical challenges.</p>
+                    </article>
+                </div>
+
                 <div class="skills-grid">
-                    
-                    <!-- Programming -->
-                    <div class="skill-category glass-card reveal">
+                    <div class="skill-category glass-card interactive-card reveal">
                         <h3 class="skill-cat-title"><i class="fas fa-laptop-code"></i> Programming</h3>
                         <div class="skill-bars">
                             <div class="skill-bar-container">
@@ -212,12 +455,11 @@
                         </div>
                     </div>
 
-                    <!-- Web Development -->
-                    <div class="skill-category glass-card reveal">
+                    <div class="skill-category glass-card interactive-card reveal">
                         <h3 class="skill-cat-title"><i class="fas fa-globe"></i> Web Development</h3>
                         <div class="skill-bars">
                             <div class="skill-bar-container">
-                                <div class="skill-info"><span>HTML & CSS</span><span>95%</span></div>
+                                <div class="skill-info"><span>HTML and CSS</span><span>95%</span></div>
                                 <div class="skill-progress"><div class="progress" data-width="95%"></div></div>
                             </div>
                             <div class="skill-bar-container">
@@ -229,209 +471,350 @@
                                 <div class="skill-progress"><div class="progress" data-width="80%"></div></div>
                             </div>
                             <div class="skill-bar-container">
-                                <div class="skill-info"><span>Node.js & Express</span><span>70%</span></div>
+                                <div class="skill-info"><span>Node.js and Express</span><span>70%</span></div>
                                 <div class="skill-progress"><div class="progress" data-width="70%"></div></div>
                             </div>
                             <div class="skill-bar-container">
-                                <div class="skill-info"><span>UI/UX Design</span><span>85%</span></div>
+                                <div class="skill-info"><span>UI / UX Thinking</span><span>85%</span></div>
                                 <div class="skill-progress"><div class="progress" data-width="85%"></div></div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Core Subjects & Tools -->
-                    <div class="skill-category glass-card reveal">
+                    <div class="skill-category glass-card interactive-card reveal">
                         <h3 class="skill-cat-title"><i class="fas fa-brain"></i> Core Knowledge</h3>
-                        <div class="skill-tags">
-                            <span class="tag core-tag">Data Structures</span>
-                            <span class="tag core-tag">Algorithms</span>
-                            <span class="tag core-tag">DBMS</span>
+                        <div class="skill-bars">
+                            <div class="skill-bar-container">
+                                <div class="skill-info"><span>Data Structures</span><span>88%</span></div>
+                                <div class="skill-progress"><div class="progress" data-width="88%"></div></div>
+                            </div>
+                            <div class="skill-bar-container">
+                                <div class="skill-info"><span>Algorithms</span><span>84%</span></div>
+                                <div class="skill-progress"><div class="progress" data-width="84%"></div></div>
+                            </div>
+                            <div class="skill-bar-container">
+                                <div class="skill-info"><span>DBMS</span><span>78%</span></div>
+                                <div class="skill-progress"><div class="progress" data-width="78%"></div></div>
+                            </div>
+                            <div class="skill-bar-container">
+                                <div class="skill-info"><span>AI and ML Basics</span><span>72%</span></div>
+                                <div class="skill-progress"><div class="progress" data-width="72%"></div></div>
+                            </div>
                         </div>
-                        <h3 class="skill-cat-title mt-4"><i class="fas fa-tools"></i> Tools</h3>
+                    </div>
+
+                    <div class="skill-category glass-card interactive-card reveal">
+                        <h3 class="skill-cat-title"><i class="fas fa-tools"></i> Tools and Workflow</h3>
+                        <p class="skill-note">Tools I use to build, iterate, and stay productive while keeping projects organized and collaborative.</p>
                         <div class="skill-tags">
-                            <span class="tag tool-tag">Git</span>
-                            <span class="tag tool-tag">GitHub</span>
+                            <span class="tag core-tag">Git</span>
+                            <span class="tag core-tag">GitHub</span>
                             <span class="tag tool-tag">VS Code</span>
+                            <span class="tag tool-tag">Responsive Design</span>
+                            <span class="tag tool-tag">Wireframing</span>
+                            <span class="tag tool-tag">Deployment Basics</span>
+                            <span class="tag tool-tag">UI Systems</span>
+                            <span class="tag tool-tag">Problem Solving</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Projects Section -->
         <section id="projects" class="section">
             <div class="container">
-                <h2 class="section-title reveal">Featured <span class="gradient-text">Projects</span></h2>
-                <div class="grid-2">
-                    <!-- Project 1 -->
-                    <div class="project-card glass-card reveal">
-                        <div class="project-img-wrapper">
-                            <div class="project-overlay">
-                                <a href="#" class="btn btn-outline"><i class="fas fa-external-link-alt"></i> View</a>
+                <div class="section-intro reveal">
+                    <p class="section-kicker">Featured Projects</p>
+                    <h2>Selected work that blends interface polish with practical functionality.</h2>
+                    <p>
+                        These projects reflect the type of products I enjoy building most: responsive, visually engaging, and structured around strong user-facing experiences.
+                    </p>
+                </div>
+
+                <div class="projects-grid">
+                    <article class="project-card glass-card interactive-card reveal">
+                        <div class="project-visual theme-portfolio">
+                            <div class="project-window">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="project-screen">
+                                <span class="screen-row w-85"></span>
+                                <span class="screen-row w-60"></span>
+                                <div class="screen-panels">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
                             </div>
                         </div>
                         <div class="project-info">
+                            <div class="project-topline">
+                                <span>Featured Build</span>
+                                <span>Portfolio</span>
+                            </div>
                             <h3>Portfolio Website</h3>
-                            <p>A modern, interactive personal portfolio website featuring layered depth visuals, glassmorphism UI, and custom animations.</p>
-                            <div class="skill-tags mt-2">
-                                <span class="tag">HTML/CSS</span>
+                            <p>A modern personal site with 3D motion, layered visuals, glassmorphism, and refined interaction patterns.</p>
+                            <div class="project-tags">
+                                <span class="tag">HTML</span>
+                                <span class="tag">CSS</span>
                                 <span class="tag">JavaScript</span>
-                                <span class="tag">Motion UI</span>
+                                <span class="tag">Three.js</span>
+                            </div>
+                            <div class="project-actions">
+                                <a href="https://github.com/Xaiiiidddd" class="btn btn-secondary" target="_blank" rel="noreferrer">GitHub Profile</a>
+                                <a href="#contact" class="btn btn-outline">Discuss Project</a>
                             </div>
                         </div>
-                    </div>
-                    
-                    <!-- Project 2 -->
-                    <div class="project-card glass-card reveal">
-                        <div class="project-img-wrapper">
-                            <div class="project-overlay">
-                                <a href="#" class="btn btn-outline"><i class="fas fa-external-link-alt"></i> View</a>
+                    </article>
+
+                    <article class="project-card glass-card interactive-card reveal">
+                        <div class="project-visual theme-commerce">
+                            <div class="project-window">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="project-screen">
+                                <span class="screen-row w-70"></span>
+                                <div class="screen-product-grid">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
                             </div>
                         </div>
                         <div class="project-info">
+                            <div class="project-topline">
+                                <span>Commerce UI</span>
+                                <span>Full Stack</span>
+                            </div>
                             <h3>E-commerce Platform</h3>
-                            <p>A fully responsive online store with a product catalog, shopping cart functionality, and integrated payment gateway UI.</p>
-                            <div class="skill-tags mt-2">
+                            <p>A responsive online store experience featuring catalog browsing, cart interactions, and payment flow design.</p>
+                            <div class="project-tags">
                                 <span class="tag">React</span>
                                 <span class="tag">Node.js</span>
                                 <span class="tag">MongoDB</span>
                             </div>
+                            <div class="project-actions">
+                                <a href="#contact" class="btn btn-secondary">Request Walkthrough</a>
+                                <a href="https://www.linkedin.com/in/zaid-ali-803b10387/" class="btn btn-outline" target="_blank" rel="noreferrer">LinkedIn</a>
+                            </div>
                         </div>
-                    </div>
+                    </article>
 
-                    <!-- Project 3 -->
-                    <div class="project-card glass-card reveal">
-                        <div class="project-img-wrapper">
-                            <div class="project-overlay">
-                                <a href="#" class="btn btn-outline"><i class="fas fa-external-link-alt"></i> View</a>
+                    <article class="project-card glass-card interactive-card reveal">
+                        <div class="project-visual theme-landing">
+                            <div class="project-window">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="project-screen">
+                                <span class="screen-row w-55"></span>
+                                <span class="screen-row w-90"></span>
+                                <span class="screen-row w-75"></span>
+                                <div class="screen-cta"></div>
                             </div>
                         </div>
                         <div class="project-info">
+                            <div class="project-topline">
+                                <span>Marketing Site</span>
+                                <span>Conversion Focused</span>
+                            </div>
                             <h3>Business Landing Page</h3>
-                            <p>A professional landing page designed for a tech startup, optimized for SEO, high performance, and high conversion rate.</p>
-                            <div class="skill-tags mt-2">
-                                <span class="tag">UI/UX Design</span>
-                                <span class="tag">CSS3</span>
+                            <p>A high-clarity landing page concept designed for a startup that needed stronger messaging, layout, and conversion flow.</p>
+                            <div class="project-tags">
+                                <span class="tag">UI Strategy</span>
+                                <span class="tag">CSS</span>
+                                <span class="tag">SEO Basics</span>
+                            </div>
+                            <div class="project-actions">
+                                <a href="#contact" class="btn btn-secondary">Start a Build</a>
+                                <a href="mailto:xaidali12345678@gmail.com" class="btn btn-outline">Email Me</a>
                             </div>
                         </div>
-                    </div>
+                    </article>
 
-                    <!-- Project 4 -->
-                    <div class="project-card glass-card reveal">
-                        <div class="project-img-wrapper">
-                            <div class="project-overlay">
-                                <a href="#" class="btn btn-outline"><i class="fas fa-external-link-alt"></i> View</a>
+                    <article class="project-card glass-card interactive-card reveal">
+                        <div class="project-visual theme-dashboard">
+                            <div class="project-window">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="project-screen">
+                                <div class="screen-metrics">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <div class="screen-chart">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
                             </div>
                         </div>
                         <div class="project-info">
+                            <div class="project-topline">
+                                <span>Admin Experience</span>
+                                <span>Data UI</span>
+                            </div>
                             <h3>Dashboard UI Design</h3>
-                            <p>An administrative dashboard featuring data visualization, user management panels, and responsive layout structure.</p>
-                            <div class="skill-tags mt-2">
+                            <p>An admin dashboard concept with data cards, panel hierarchy, and responsive structure for analytics-heavy experiences.</p>
+                            <div class="project-tags">
                                 <span class="tag">JavaScript</span>
-                                <span class="tag">Chart.js</span>
+                                <span class="tag">Chart Thinking</span>
                                 <span class="tag">Admin UI</span>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Achievements Section -->
-        <section id="achievements" class="section">
-            <div class="container">
-                <h2 class="section-title reveal">Honors & <span class="gradient-text">Achievements</span></h2>
-                <div class="grid-3">
-                    <div class="achievement-card glass-card reveal">
-                        <i class="fas fa-trophy achievement-icon"></i>
-                        <h4>College Hackathon Winner</h4>
-                        <p>Secured 1st place in the college-level hackathon 2025 by building an innovative solution.</p>
-                    </div>
-                    <div class="achievement-card glass-card reveal">
-                        <i class="fas fa-chart-line achievement-icon"></i>
-                        <h4>Top 10% KIITEE Mock</h4>
-                        <p>Ranked in the top 10 percentile across all students in the KIITEE Mock Test Series.</p>
-                    </div>
-                    <div class="achievement-card glass-card reveal">
-                        <i class="fas fa-users achievement-icon"></i>
-                        <h4>Event Organizer</h4>
-                        <p>Successfully organized and led a university-wide coding event during the annual tech fest.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="section bg-alt">
-            <div class="container">
-                <h2 class="section-title reveal">Get In <span class="gradient-text">Touch</span></h2>
-                <div class="contact-grid">
-                    
-                    <div class="contact-info reveal">
-                        <h3>Contact Information</h3>
-                        <p>Feel free to reach out for collaborations, job opportunities, or just a friendly chat.</p>
-                        
-                        <div class="contact-methods">
-                            <a class="contact-method-card glass-card" href="tel:+919709409792">
-                                <i class="fas fa-phone"></i>
-                                <div>
-                                    <h4>Phone</h4>
-                                    <span>+91 9709409792</span>
-                                </div>
-                            </a>
-                            
-                            <a class="contact-method-card glass-card" href="mailto:xaidali12345678@gmail.com">
-                                <i class="fas fa-envelope"></i>
-                                <div>
-                                    <h4>Email</h4>
-                                    <span>xaidali12345678@gmail.com</span>
-                                </div>
-                            </a>
-                            
-                            <div class="contact-method-card glass-card">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <div>
-                                    <h4>Location</h4>
-                                    <span>Bhubaneswar, Odisha, India</span>
-                                </div>
+                            <div class="project-actions">
+                                <a href="#contact" class="btn btn-secondary">Collaborate</a>
+                                <a href="https://github.com/Xaiiiidddd" class="btn btn-outline" target="_blank" rel="noreferrer">See More</a>
                             </div>
                         </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="achievements" class="section">
+            <div class="container">
+                <div class="section-intro reveal">
+                    <p class="section-kicker">Proof and Highlights</p>
+                    <h2>Signals that show consistency, initiative, and growth.</h2>
+                    <p>
+                        Achievements matter most when they tell a story about effort and direction. These are the milestones that reflect both performance and initiative.
+                    </p>
+                </div>
+
+                <div class="stats-band">
+                    <article class="stat-card glass-card interactive-card reveal">
+                        <strong class="stat-number" data-count="8.5">8.5</strong>
+                        <span>Current CGPA</span>
+                    </article>
+                    <article class="stat-card glass-card interactive-card reveal">
+                        <strong class="stat-number" data-count="1">1</strong>
+                        <span>Internship Experience</span>
+                    </article>
+                    <article class="stat-card glass-card interactive-card reveal">
+                        <strong class="stat-number" data-count="4">4</strong>
+                        <span>Featured Projects</span>
+                    </article>
+                    <article class="stat-card glass-card interactive-card reveal">
+                        <strong class="stat-number" data-count="5">5</strong>
+                        <span>Languages Spoken</span>
+                    </article>
+                </div>
+
+                <div class="achievement-grid">
+                    <article class="achievement-card glass-card interactive-card reveal">
+                        <i class="fas fa-trophy achievement-icon"></i>
+                        <h3>College Hackathon Winner</h3>
+                        <p>Secured first place in a college hackathon in 2025 by building an innovative solution under pressure.</p>
+                    </article>
+                    <article class="achievement-card glass-card interactive-card reveal">
+                        <i class="fas fa-chart-line achievement-icon"></i>
+                        <h3>Top 10 Percent in KIITEE Mock</h3>
+                        <p>Ranked within the top 10 percentile across students in the KIITEE Mock Test Series.</p>
+                    </article>
+                    <article class="achievement-card glass-card interactive-card reveal">
+                        <i class="fas fa-users achievement-icon"></i>
+                        <h3>Event Organizer</h3>
+                        <p>Organized and led a university coding event, balancing planning, execution, and team coordination.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section bg-alt">
+            <div class="container">
+                <div class="section-intro reveal">
+                    <p class="section-kicker">Get In Touch</p>
+                    <h2>Let's build something useful, polished, and memorable.</h2>
+                    <p>
+                        I am open to internship roles, freelance opportunities, and collaborations where I can contribute across frontend development, UI refinement, and problem solving.
+                    </p>
+                </div>
+
+                <div class="contact-grid">
+                    <div class="contact-copy">
+                        <article class="contact-card glass-card interactive-card reveal">
+                            <p class="panel-label">Best fit for</p>
+                            <h3>Portfolios, landing pages, dashboards, and student products that need a cleaner experience.</h3>
+                            <p>
+                                If you want a website that feels more advanced, more focused, and much better presented, I would love to help shape it.
+                            </p>
+
+                            <div class="contact-methods">
+                                <a class="contact-method-card glass-card interactive-card" href="tel:+919709409792">
+                                    <i class="fas fa-phone"></i>
+                                    <div>
+                                        <h4>Phone</h4>
+                                        <span>+91 9709409792</span>
+                                    </div>
+                                </a>
+
+                                <a class="contact-method-card glass-card interactive-card" href="mailto:xaidali12345678@gmail.com">
+                                    <i class="fas fa-envelope"></i>
+                                    <div>
+                                        <h4>Email</h4>
+                                        <span>xaidali12345678@gmail.com</span>
+                                    </div>
+                                </a>
+
+                                <a class="contact-method-card glass-card interactive-card" href="https://www.linkedin.com/in/zaid-ali-803b10387/" target="_blank" rel="noreferrer">
+                                    <i class="fab fa-linkedin-in"></i>
+                                    <div>
+                                        <h4>LinkedIn</h4>
+                                        <span>Connect professionally</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </article>
+
+                        <article class="contact-note glass-card interactive-card reveal">
+                            <span class="note-label">Location</span>
+                            <p>Bhubaneswar, Odisha, India</p>
+                        </article>
                     </div>
 
                     <div class="contact-form-container reveal">
-                        <form id="contactForm" class="contact-form glass-card">
+                        <form id="contactForm" class="contact-form glass-card interactive-card">
                             <div class="form-group">
-                                <input type="text" id="name" placeholder="Your Name" required>
+                                <label class="sr-only" for="name">Your name</label>
+                                <input type="text" id="name" name="name" placeholder="Your Name" required>
                             </div>
                             <div class="form-group">
-                                <input type="email" id="email" placeholder="Your Email" required>
+                                <label class="sr-only" for="email">Your email</label>
+                                <input type="email" id="email" name="email" placeholder="Your Email" required>
                             </div>
                             <div class="form-group">
-                                <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+                                <label class="sr-only" for="message">Your message</label>
+                                <textarea id="message" name="message" rows="6" placeholder="Tell me about your idea or opportunity" required></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary w-100">Send Message <i class="fas fa-paper-plane"></i></button>
                         </form>
+                        <p class="form-note">Prefer direct email? Reach me at <a href="mailto:xaidali12345678@gmail.com">xaidali12345678@gmail.com</a>.</p>
                     </div>
-
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
     <footer>
         <div class="container footer-content">
-            <div class="footer-logo">Zaid <span>Ali</span></div>
-            <div class="social-icons">
-                <a href="https://github.com/Xaiiiidddd" class="social-icon"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/zaid-ali-803b10387/" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://www.instagram.com/xaid._.7/" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <div class="footer-brand">
+                <div class="footer-logo">Zaid <span>Ali</span></div>
+                <p>Software developer focused on building modern interfaces with clarity, personality, and purpose.</p>
             </div>
-            <p class="copyright">&copy; 2026 Zaid Ali. All rights reserved.</p>
+
+            <div class="social-icons">
+                <a href="https://github.com/Xaiiiidddd" class="social-icon" target="_blank" rel="noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/zaid-ali-803b10387/" class="social-icon" target="_blank" rel="noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.instagram.com/xaid._.7/" class="social-icon" target="_blank" rel="noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+
+            <p class="copyright">&copy; <span id="current-year">2026</span> Zaid Ali. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
